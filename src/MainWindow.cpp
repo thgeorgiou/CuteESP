@@ -168,7 +168,7 @@ void MainWindow::firmwareInfo() {
     arguments << "image_info" << firmwarePath;
 
     // Call esptool
-    QString program = "/usr/bin/esptool.py";
+    QString program = QCoreApplication::applicationDirPath() + QString("/esptool.py");
     esptool = new QProcess(this);
     esptool->start(program, arguments);
 
@@ -234,7 +234,7 @@ void MainWindow::flashFirmware() {
     }
 
     // Create process and connect signals
-    QString program = "/usr/bin/esptool.py";
+    QString program = QCoreApplication::applicationDirPath() + QString("/esptool.py");
     esptool = new QProcess(this);
     esptool->setProcessChannelMode(QProcess::MergedChannels);
 
